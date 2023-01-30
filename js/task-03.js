@@ -13,22 +13,24 @@ const images = [
   },
 ];
 
-const menuImgList = document.querySelector("ul.gallery");
+const menuImgList = document.querySelector(".gallery");
 
-const imgList = [];
+// const imgList = [];
 
-images.forEach((image) => {
-  let item = document.createElement('li');
-  let imgItem = document.createElement('img');
-  imgItem.src = image.url;
-  imgItem.alt = image.alt;
-  item.appendChild(imgItem);
-  imgList.push(item)
-});
-
-
+// images.forEach((image) => {
+//   let item = document.createElement('li');
+//   let imgItem = document.createElement('img');
+//   imgItem.src = image.url;
+//   imgItem.alt = image.alt;
+//   item.appendChild(imgItem);
+//   imgList.push(item)
+// });
 
 
+const makeImgListMarkUp = ({ url, alt }) => {
+  return `<li class="gallery__item"><img src="${url}" alt="${alt}" width="480" >`
+};
 
+const imgList = images.map(makeImgListMarkUp).join("");
 
-menuImgList.append(...imgList);  
+menuImgList.insertAdjacentHTML("afterbegin",imgList);  
