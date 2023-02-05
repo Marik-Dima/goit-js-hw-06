@@ -2,11 +2,11 @@ const inputName = document.querySelector('#name-input');
 const greetingOutputName = document.querySelector('#name-output');
 
 
-inputName.addEventListener('input', onInputAction);
+inputName.addEventListener('input', (event) => { greetingOutputName.textContent = !inputName.value.trim() ? "Anonymous" : event.currentTarget.value; });
 
-function onInputAction(event){
+// function onInputAction(event){
+// greetingOutputName.textContent = !inputName.value.trim() ? "Anonymous" : event.currentTarget.value;
+// };
 
-    if (!inputName.value.trim()) { greetingOutputName.textContent = "Anonymous" }
-    else {greetingOutputName.textContent = event.currentTarget.value;}
-};
+
 
